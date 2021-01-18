@@ -1,0 +1,35 @@
+{% load static %} <!-- Грузим все статические файлы -->
+<html lang="ru">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}{% endblock %}</title>  <!-- Эти странные штуки мы пишем благодаря jinja (сделать
+         определённый макет, чтобы другие html файлы моглиghb наследовать, что впоследствии обеспечит нам меньшую работу)-->
+        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link  rel="stylesheet" href = "{% static 'homepage/css/style.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="icon" href="{% static '/homepage/img/icon.png' %}">
+
+    </head>
+    <body>
+        <div class="header" style="display: inline-block; -webkit-appearance: -apple-pay-button; -apple-pay-button-type: plain; -apple-pay-button-style: black;">
+               <ul><a href="{% url 'home' %}"><li class="logo"><i class="fas fa-book-open"></i>Главная</li></a> <!-- Поддерживает изменнение ссылок "{% url 'home' %}"-->
+                  <a href=""><li class="filter"><i class="fas fa-filter"></i>Фильтр</li></a>
+                  <a href="http://lyceum144.ru/"><li><i class="fas fa-school"></i>Лицей</li></a>
+                  <a href=""><li><i class="fas fa-paper-plane"></i>О нас</li></a>
+                  <a href=""><li><i class="fas fa-shopping-basket"></i>Корзина</li></a>
+
+               </ul>
+
+
+        </div>
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+
+    </body>
+</html>

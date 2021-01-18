@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}Книга{% endblock %}
+{%  block body %} <!-- "section" тоже самое, что и "block"-->
+    <h1>книга номер n</h1>
+    <p>Книга номер n</p>
+    {% for el in bookpage %} # <!-- фигачим через цикл чтобы на экран вывелись title, author pages(находятся они  моделях) -->
+        <div class= "alert alert-warning">
+            <h3>{{el.title }}</h3>
+            <p>{{el.author}}</p>
+            <h3>{{el.pages }}</h3>
+            <img src = '{{ el.image }}' alt = 'картинка'> <!-- Пытаюсь вывести но не получается -->
+        </div>
+
+    {% endfor %}
+{% endblock %}
